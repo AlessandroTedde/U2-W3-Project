@@ -1,8 +1,16 @@
 @import "bootstrap-overrides";
-a {
-  color: #ebebeb;
-  text-decoration: none;
+.card {
+  height: 500px;
+  color: black;
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+  }
 }
-a:hover {
-  color: red;
+a {
+  color: black;
+  text-decoration: none;
 }
