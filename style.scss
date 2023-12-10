@@ -1,12 +1,8 @@
 @import "bootstrap-overrides";
-footer {
-  div {
-    a {
-      color: $gray-500;
-      text-decoration: none;
-    }
-    a:hover {
-      color: white;
-    }
-  }
+a {
+  color: #ebebeb;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
 }

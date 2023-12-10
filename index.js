@@ -32,7 +32,7 @@ fetch(endpoint, {
       price.classList.add("fs-5");
       price.innerText = "price: " + product.price + "€";
       const detailsLink = document.createElement("a");
-      detailsLink.setAttribute("href", "./backoffice.html" + "?resourceId=" + id);
+      detailsLink.setAttribute("href", "./details.html" + "?resourceId=" + id);
       detailsLink.innerText = "Discover More...";
       row.appendChild(col);
       col.appendChild(card);
@@ -43,4 +43,7 @@ fetch(endpoint, {
       card.appendChild(detailsLink);
     });
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error))
+  .finally(() => {
+    document.querySelector(".spinner-border").classList.add("d-none");
+  });

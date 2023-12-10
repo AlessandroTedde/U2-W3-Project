@@ -10,13 +10,6 @@ if (resourceId) {
   method = "POST";
   URL = endpoint;
 }
-const addProduct = {
-  name: document.getElementById("name").value,
-  description: document.getElementById("description").value,
-  brand: document.getElementById("brand").value,
-  imageUrl: document.getElementById("imageUrl").value,
-  price: document.getElementById("price").value,
-};
 
 window.addEventListener("DOMContentLoaded", () => {
   const confirmButton = document.getElementById("confirm");
@@ -46,7 +39,9 @@ window.addEventListener("DOMContentLoaded", () => {
     trashCan.classList.add("d-none");
   }
 });
-const inTheTrash = () => {
+
+const trashCan = document.getElementById("delete");
+trashCan.addEventListener("click", () => {
   const confirmedErase = confirm("Do you really want to delete this product?");
   if (confirmedErase) {
     fetch(URL, {
@@ -64,9 +59,19 @@ const inTheTrash = () => {
         window.alert("You have deleted " + deletedProduct.name + " which had id n: " + deletedProduct._id);
       });
   }
-};
-const confirm = document.getElementById("confirm");
-confirm.addEventListener("submit", () => {
+});
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const addProduct = {
+    name: document.getElementById("name").value,
+    description: document.getElementById("description").value,
+    brand: document.getElementById("brand").value,
+    imageUrl: document.getElementById("imageUrl").value,
+    price: document.getElementById("price").value,
+  };
+
   fetch(URL, {
     method,
     body: JSON.stringify(addProduct),
@@ -91,4 +96,12 @@ confirm.addEventListener("submit", () => {
         : window.alert("You have successfully added your product! The id n. is: " + newProduct._id);
     })
     .catch((error) => console.log(error));
+};
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => {
+  document.getElementById("name").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("brand").value = "";
+  document.getElementById("imageUrl").value = "";
+  document.getElementById("price").value = "";
 });
