@@ -25,9 +25,6 @@ fetch(endpoint, {
       img.classList.add("img-fluid");
       const brand = document.createElement("p");
       brand.innerText = "brand: " + product.brand;
-      const desc = document.createElement("p");
-      desc.classList.add("fs-5");
-      desc.innerText = product.description;
       const price = document.createElement("p");
       price.classList.add("fs-5");
       price.innerText = "price: " + product.price + "€";
@@ -38,7 +35,6 @@ fetch(endpoint, {
       col.appendChild(card);
       card.appendChild(img);
       card.appendChild(h3);
-      card.appendChild(desc);
       card.appendChild(price);
       card.appendChild(detailsLink);
     });
